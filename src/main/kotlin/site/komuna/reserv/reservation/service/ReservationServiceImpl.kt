@@ -21,7 +21,7 @@ class ReservationServiceImpl(
 
     override fun getReservationsForRoom(roomId: Long): Flux<ReservationDto> {
         return repository
-            .findAllByRehearsalRoomId(roomId)
+            .findAllByRoomId(roomId)
             .map { ReservationDto(it) }
     }
 
@@ -33,7 +33,7 @@ class ReservationServiceImpl(
 
     override fun getFutureReservationsForRoom(roomId: Long): Flux<ReservationDto> {
         return repository
-            .findAllByRehearsalRoomIdAndStartAtAfter(roomId, LocalDateTime.now())
+            .findAllByRoomIdAndStartAtAfter(roomId, LocalDateTime.now())
             .map { ReservationDto(it) }
     }
 }

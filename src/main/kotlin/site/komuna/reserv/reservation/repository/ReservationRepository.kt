@@ -8,7 +8,7 @@ import java.time.LocalDateTime
 
 @Repository
 interface ReservationRepository: R2dbcRepository<ReservationEntity, Long> {
-	fun findAllByRehearsalRoomId(roomId: Long): Flux<ReservationEntity>
+	fun findAllByRoomId(roomId: Long): Flux<ReservationEntity>
 	fun findAllByStartAtAfter(startAt: LocalDateTime): Flux<ReservationEntity>
-	fun findAllByRehearsalRoomIdAndStartAtAfter(roomId: Long, startAt: LocalDateTime): Flux<ReservationEntity>
+	fun findAllByRoomIdAndStartAtAfter(roomId: Long, startAt: LocalDateTime): Flux<ReservationEntity>
 }
